@@ -1,1 +1,1 @@
-This repository contains python code of problems I solve using Codewars, Projecteuler and others. 
+python code of problems solved using Codewars, Projecteuler and others. 
