@@ -25,10 +25,10 @@ def count_smileys(arr):
     count = 0 
     for i in arr:
     	found = True
-        for j in range(len(i)):
-            if j==0 and i[j] not in eyes:
+        for j, item in enumerate(i):
+            if j==0 and item not in eyes:
             	found = False
-            elif j>0 and i[j] not in nose:
+            elif j>0 and item not in nose:
             	found = False
 
         if found == True:
