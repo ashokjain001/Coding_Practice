@@ -3,7 +3,7 @@
 in the form of a phone number.'''
 
 def create_phone_number(n):
-	strs=''.join(map(str,n)) #mao applies the str function to iteration n
+	strs=''.join(map(str,n)) #map applies the str function to iteration n
 	return '('+ strs[:3] +') '+strs[3:6]+'-'+strs[6:]
 
 
