@@ -14,7 +14,7 @@ print(pascalTriangle(10))
 Pascal Triangle has a special property of combinatrics 
 and we are using combinatorics formula to solve the pascal triangle.
 output to input 10
- 		    1 
+           1 
           1  1 
          1  2  1 
         1  3  3  1 
