@@ -1,4 +1,4 @@
-'''Find minimum difference between any two elements
+'''Find minimum difference between any two elements in an array
 1) this algorithm has a running time of O(n^2) since there are 2 forloops.
 '''
 
