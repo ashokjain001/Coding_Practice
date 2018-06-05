@@ -7,9 +7,10 @@ consider an array with n elements and value of all
 
 https://www.geeksforgeeks.org/count-minimum-steps-get-given-desired-array/?qa-rewrite=7023/create-desired-array-from-zero-array
 
-
 '''
+
 def countSteps(array):
+	
 	s=sum(array)
 	count=0
 	while s!=1:
