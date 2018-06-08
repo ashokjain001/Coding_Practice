@@ -1,1 +1,1 @@
-python code of problems solved using Codewars, Projecteuler and others. 
+Problem solving using python.
