@@ -28,7 +28,8 @@ def binarySearch(array,value):
 			print 'New array', array
 
 
-print binarySearch([2,5,8,12,16,23,38,56,72,91],23)
+#print binarySearch([2,5,8,12,16,23,38,56,72,91],23)
+print binarySearch([0, 1, 1, 3, 3, 3, 3, 6, 8, 10, 11, 11],3)
 
 
 ''' 
