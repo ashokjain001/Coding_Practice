@@ -32,13 +32,13 @@ def peakFinderBinary(array, low, high):
 	
 	#high=len(array)-1
 	mid=(low+high)/2
-
+	peak=[]
 	print array, high, low, mid, array[low:high+1], array[mid]
 
 	#base case
 	if ((mid==len(array)-1 or array[mid]>array[mid+1]) and (array[mid]>array[mid-1] or mid==0)):
-		return array[mid]
-
+		return mid
+		
 	if (array[mid]<array[mid-1]): #middle element is less than the left neighbor, peak is in the left half
 		return peakFinderBinary(array, 0, mid)
 
@@ -46,7 +46,8 @@ def peakFinderBinary(array, low, high):
 		return peakFinderBinary(array, mid+1,len(array))
 
 
-print peakFinderBinary([21, 20, 15, 16, 18, 67, 90], 0, 7)
+print peakFinderBinary([21, 20, 15, 19, 18, 90, 67], 0, 7)
+
 
 
 
