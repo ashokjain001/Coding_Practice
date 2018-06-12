@@ -1,4 +1,4 @@
-def peakFinder(array):
+refactordef peakFinder(array):
 	'''This algo has a running time of O(n)'''
 
 	l=len(array)
