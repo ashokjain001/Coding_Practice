@@ -2,7 +2,7 @@
 Time complexity - Quicksort has running time of O(n log n) as average case running time 
 							  O(n^2) as worst case running time
 
-Space complexity - In Place
+Space complexity - In Place sorting, and memory used is proportional to the size of the array
 '''
 
 def quicksort(a, start, end):
@@ -43,5 +43,5 @@ def partition(a, start, end):
 
 print quicksort([7,2,1,6,8,5,3,4],0,7)
 
-#print quicksort([40,7,90,20,60,21,6,19],0,7)
+print quicksort([40,7,90,20,60,21,6,19],0,7)
 
