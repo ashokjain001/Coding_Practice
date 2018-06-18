@@ -11,6 +11,13 @@ In every iteration of selection sort, the minimum element
 (considering ascending order) from the unsorted subarray is picked and 
 moved to the sorted subarray.
 
+Time Complexity: 
+O(n2) as there are two nested loops.
+
+Space Complexity: O(1)
+The good thing about selection sort is it never makes more than O(n)
+ swaps and can be useful when memory write is a costly operation.
+ This is in-place sorting
 '''
 #Using helper function
 def selectionSort(arr):
@@ -39,14 +46,6 @@ def selectionSort2(arr):
 print selectionSort2([2,7,4,1,5,3])
 
 '''
-Time Complexity: 
-O(n2) as there are two nested loops.
-
-Auxiliary Space: O(1)
-The good thing about selection sort is it never makes more than O(n)
- swaps and can be useful when memory write is a costly operation.
- This is in-place sorting
-
 Input [2, 7, 4, 1, 5, 3]
 1 is smaller than 2 and swapped
 [1, 7, 4, 2, 5, 3]
