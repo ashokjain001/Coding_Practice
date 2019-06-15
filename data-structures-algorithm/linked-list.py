@@ -70,13 +70,13 @@ class Linkedlist(object):
 			if current.value == value:
 				if prev:
 					prev.next  = current.next
+					return 'Deleted', value
 				else:
 					self.head=current.next
-				return
+				return 'Deleted', value
 			else:
 				prev = current
 				current = current.next
-		return 'Deleted', value
 
 	#Reverse the linked list
 	def reverse(self):
@@ -115,34 +115,50 @@ ll.append(e3)
 
 print 'Print linked list '
 print ll.prints()
+'''Print linked list 
+1 2 3 None'''
 
 # Insert node at  
 print 'Insert node with value 4 at position 3',ll.insert(e4,3)
 
 print 'Print linked list '
 print ll.prints()
+'''Print linked list 
+1 2 4 3 None'''
 
 # Should print 4
 print 'Value of the node at position 3 is',ll.get_position(3).value
+'''Value of the node at position 3 is 4'''
 
 # number of element in linked list
 print 'Number of nodes in linked list ',ll.count()
+'''Number of nodes in linked list  4'''
 
 # print the values of linkedlist in reverse order 
 print 'Print the values of linkedlist in reverse order' 
 print ll.Recursionprint(ll.head)
+'''Print the values of linkedlist in reverse order
+3 4 2 1 None'''
 
 print 'Delete node with value 4'
 print ll.delete(4)
+'''Delete node with value 4
+('Deleted', 4)'''
 
 print 'Print linked list '
 print ll.prints()
+'''Print linked list 
+1 2 3 None'''
 
 print 'Reverse the linked list'
 print ll.reverse()
 print 'Printing linked list after reverse operation'
 print ll.prints()
+'''Printing linked list after reverse operation
+3 2 1 None'''
 
 print 'Print first node after reverse operation'
 print ll.get_position(1).value
-# Should print 4 now
+'''Print first node after reverse operation
+3'''
+
