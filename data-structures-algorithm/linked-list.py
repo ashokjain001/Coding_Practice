@@ -50,17 +50,17 @@ class Linkedlist(object):
 	def prints(self):
 		current= self.head
 		while current:
-			print current.value
+			print current.value,
 			current=current.next
 		return
 
 	#Print the value of node in reverse order 	
 	def Recursionprint(self,current):
 		if current.next == None:
-			print current.value
+			print current.value,
 			return
 		ll.Recursionprint(current.next)
-		print current.value
+		print current.value,
 		
 	#delete the first node with the given value 	
 	def delete(self, value):
@@ -76,7 +76,6 @@ class Linkedlist(object):
 			else:
 				prev = current
 				current = current.next
-				print prev.value, current.value
 		return 'Deleted', value
 
 	#Reverse the linked list
@@ -100,7 +99,7 @@ class Linkedlist(object):
 		while current:
 			count+=1
 			current = current.next
-		return 'the count is ', count
+		return count
 
 # Test cases
 # Set up some Elements
@@ -114,34 +113,30 @@ ll = Linkedlist(e1)
 ll.append(e2)
 ll.append(e3)
 
-# Should print 3
-print ll.head.next.next.value
+print 'Print linked list '
+print ll.prints()
 
-# Should also print 3
-print 'Value of the element at position 3 is ',ll.get_position(3).value
+# Insert node at  
+print 'Insert node with value 4 at position 3',ll.insert(e4,3)
 
-# Test insert
-ll.insert(e4,3)
+print 'Print linked list '
+print ll.prints()
 
-# Should print 4 now
-#print ll.get_position(3).value
+# Should print 4
+print 'Value of the node at position 3 is',ll.get_position(3).value
 
 # number of element in linked list
-print 'Number of element in linked list ',ll.count()
-
-# print values of linked list 
-print 'Print values of linked list '
-print ll.prints()
+print 'Number of nodes in linked list ',ll.count()
 
 # print the values of linkedlist in reverse order 
 print 'Print the values of linkedlist in reverse order' 
 print ll.Recursionprint(ll.head)
 
-print 'Delete node'
+print 'Delete node with value 4'
 print ll.delete(4)
 
-
-# Should print 2 now
+print 'Print linked list '
+print ll.prints()
 
 print 'Reverse the linked list'
 print ll.reverse()
