@@ -18,7 +18,7 @@ class doublylinkedlist(object):
 			current.next = new_element
 		else:
 			self.head = new_element
-		return 
+		return ''
 
 	def insert(self,new_element,position):
 		current = self.head
@@ -29,24 +29,31 @@ class doublylinkedlist(object):
 				current.next.prev = new_element
 				current.next = new_element
 				new_element.prev = current
-				return 
+				return ''
 			elif position == 1:
 				new_element.next = self.head
 				self.head = new_element
-				return
+				return ''
 			else:
 				elepos+=1
 				current=current.next
-		else:
-			self.head = new_element
-			return
+
+	def delete(self,value):
+		current = self.head
+		while current:
+			if current.value == value:
+				current.prev.next = current.next
+				current.next.prev = current.prev
+				return ''
+			else:
+				current = current.next
 
 	def prints(self):
 		current = self.head
 		while current:
-			print current.value
+			print current.value,
 			current = current.next
-		return 
+		return ''
 
 # Test cases
 # Set up some Elements
@@ -55,10 +62,21 @@ e2 = newelement(2)
 e3 = newelement(3)
 e4 = newelement(4)
 
-
+# Start setting up a LinkedList
 dl = doublylinkedlist(e1)
 
-dl.insert(e4,1)
+print 'Print doubly linked list',dl.prints()
+#Print doubly linked list 1 
+
+print 'Insert node with value 4 at position 1',dl.insert(e4,1)
+#Insert node with value 4 at position 1 
+
+print 'Insert node with value 3 at position 2',dl.insert(e3,2)
+#Insert node with value 3 at position 2 
+
+print 'Append node with value 2',dl.append(e2)
+#Append node with value 2
+
 '''
 dl.append(e2)
 dl.append(e3)
@@ -67,4 +85,11 @@ print dl.prints()s
 
 dl.insert(e4,2)
 '''
-print dl.prints()
+print 'Print doubly linked list',dl.prints()
+#Print doubly linked list 4 3 1 2 
+
+print 'Delete node with value 3',dl.delete(3)
+#Delete node with value 3 
+
+print 'Print doubly linked list',dl.prints()
+#Print doubly linked list 4 1 2 
