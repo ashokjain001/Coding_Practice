@@ -29,6 +29,7 @@ class Stack(object):
 	def __init__(self, head=None):
 		self.head = head
 
+	#Enter new element at the top of the Stack
 	def push(self, new_element):
 		current = self.head
 		if current:
@@ -38,19 +39,31 @@ class Stack(object):
 			self.head = new_element
 		return ''
 
-
+	#remove element from the top of the Stack	
 	def pop(self):
 		current = self.head
 		if current:
 			self.head = current.next
 		return current.value
 
+	#print the element in stack	
 	def prints(self):
 		current=self.head
 		while current:
 			print current.value,
 			current = current.next
 		return ''
+
+
+	# print the top element of the array
+	def top(self):
+		current = self.head
+		if current:
+			return current.value
+		else:
+			return '' 
+		return ''
+
 
 # Test cases
 # set up elements
@@ -66,6 +79,8 @@ stack = Stack(e1)
 stack.push(e2)
 stack.push(e3)
 
+print 'top item in stack is',stack.top()
+# top item in stack is 3
 print 'print',stack.prints()
 # print 3 2 1 
 print 'Pop1',stack.pop()
@@ -83,6 +98,8 @@ print 'print',stack.prints()
 print 'push element 4',stack.push(e4)
 # push element 4 
 print 'print', stack.prints()
+print 'top item in stack is',stack.top()
+# top item in stack is 4
 # print 4 
 print 'Pop4',stack.pop()
 # Pop4 4
