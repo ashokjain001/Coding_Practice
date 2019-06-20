@@ -22,8 +22,8 @@ Implementation below is using the second approach
 '''
 class Element(object):
 	def __init__(self,value):
-		self.value = value
-		self.next = None
+		self.value = value 
+		self.next = None 
 
 class Stack(object):
 	def __init__(self, head=None):

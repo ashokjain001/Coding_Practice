@@ -30,7 +30,7 @@ class Linkedlist(object):
 				return current
 			current = current.next
 			ele_pos+=1
-		return 
+		return ''
 
 	#insert at a given position	
 	def insert(self, new_element, position):
@@ -40,7 +40,7 @@ class Linkedlist(object):
 			if ele_pos == position-1:
 				new_element.next = current.next
 				current.next = new_element
-				return 
+				return ''
 			else:
 				ele_pos+=1
 				#print ele_pos
@@ -52,13 +52,13 @@ class Linkedlist(object):
 		while current:
 			print current.value,
 			current=current.next
-		return
+		return ''
 
 	#Print the value of node in reverse order 	
 	def Recursionprint(self,current):
 		if current.next == None:
 			print current.value,
-			return
+			return ''
 		ll.Recursionprint(current.next)
 		print current.value,
 		
@@ -89,7 +89,7 @@ class Linkedlist(object):
 			current=next
 				
 		self.head = prev
-		return 
+		return ''
 
 	#count number of node in a linked list		
 	def count(self):
@@ -113,16 +113,14 @@ ll = Linkedlist(e1)
 ll.append(e2)
 ll.append(e3)
 
-print 'Print linked list '
-print ll.prints()
+print 'Print linked list',ll.prints()
 '''Print linked list 
 1 2 3 None'''
 
 # Insert node at  
 print 'Insert node with value 4 at position 3',ll.insert(e4,3)
 
-print 'Print linked list '
-print ll.prints()
+print 'Print linked list',ll.prints()
 '''Print linked list 
 1 2 4 3 None'''
 
@@ -135,30 +133,24 @@ print 'Number of nodes in linked list ',ll.count()
 '''Number of nodes in linked list  4'''
 
 # print the values of linkedlist in reverse order 
-print 'Print the values of linkedlist in reverse order' 
-print ll.Recursionprint(ll.head)
+print 'Print the values of linkedlist in reverse order',ll.Recursionprint(ll.head)
 '''Print the values of linkedlist in reverse order
 3 4 2 1 None'''
 
-print 'Delete node with value 4'
-print ll.delete(4)
+print 'Delete node with value 4',ll.delete(4)
 '''Delete node with value 4
 ('Deleted', 4)'''
 
-print 'Print linked list '
-print ll.prints()
+print 'Print linked list',ll.prints()
 '''Print linked list 
 1 2 3 None'''
 
-print 'Reverse the linked list'
-print ll.reverse()
-print 'Printing linked list after reverse operation'
-print ll.prints()
+print 'Reverse the linked list',ll.reverse()
+print 'Printing linked list after reverse operation',ll.prints()
 '''Printing linked list after reverse operation
 3 2 1 None'''
 
-print 'Print first node after reverse operation'
-print ll.get_position(1).value
+print 'Print first node after reverse operation',ll.get_position(1).value
 '''Print first node after reverse operation
 3'''
 

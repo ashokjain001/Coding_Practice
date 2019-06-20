@@ -1,12 +1,10 @@
-class newelement(object):
-	"""docstring for ClassName"""
+class Element(object):
 	def __init__(self, value):
 		self.value = value 
 		self.next = None
 		self.prev = None
 
 class doublylinkedlist(object):
-	"""docstring for ClassName"""
 	def __init__(self, head=None):
 		self.head = head 
 
@@ -57,10 +55,10 @@ class doublylinkedlist(object):
 
 # Test cases
 # Set up some Elements
-e1 = newelement(1)
-e2 = newelement(2)
-e3 = newelement(3)
-e4 = newelement(4)
+e1 = Element(1)
+e2 = Element(2)
+e3 = Element(3)
+e4 = Element(4)
 
 # Start setting up a LinkedList
 dl = doublylinkedlist(e1)
@@ -81,7 +79,7 @@ print 'Append node with value 2',dl.append(e2)
 dl.append(e2)
 dl.append(e3)
 
-print dl.prints()s
+print dl.prints()
 
 dl.insert(e4,2)
 '''
