@@ -11,7 +11,6 @@ Operations
 
 This is a linked list implementation of Queue and in order to achieve O(1) run time 
 we are using a rear variable to actively store the reference to the last element in queue.
-the 
 
 '''
 class Element(object):
@@ -25,13 +24,17 @@ class Queue(object):
 		self.rear = head
 
 	def enqueue(self, new_element):
+
 		current = self.head
 		last = self.rear
 
 		if last:
 			last.next = new_element
-			self.rear = new_element		
-			last = self.rear
+			last = last.next
+			self.rear = last
+
+		self.head = new_element
+		self.rear = new_element	
 
 		return 'last value',last.value
 
