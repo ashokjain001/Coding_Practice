@@ -92,7 +92,7 @@ class BST(object):
 
 		return max(leftHeight,rightHeight)+1
 
-
+	# depth first search
 	def preorder_Traversal(self):
 		return self.preorder_Traversal_(self.root)
 
@@ -125,6 +125,48 @@ class BST(object):
 			self.postorder_Traversal_(root.right)
 			print root.value
 
+
+	# level order is a breadth first search		
+	def levelOrderTraversal(self):
+		queue = []
+		queue.append(self.root)
+		return self.levelOrderTraversal_(queue)
+
+	def levelOrderTraversal_(self, queue):
+		print queue
+		if len(queue)!=0:
+			current = queue[0]
+		
+			if current.left:
+				queue.append(current.left)
+
+			if current.right:
+				queue.append(current.right)
+
+			print current.value
+
+			return self.levelOrderTraversal_(queue[1:])
+
+
+	def levelOrderTraversalloop(self):
+		queue = []
+		queue.append(self.root)
+
+		while len(queue)!=0:
+			current = queue[0]
+			print current.value
+
+			if current.left!=None:
+				queue.append(current.left)
+
+			if current.right!=None:	
+				queue.append(current.right)
+
+			queue=queue[1:]
+
+
+
+
 e1 = Element(15)
 root = BST(e1)
 
@@ -151,6 +193,11 @@ print 'preorder Traversal of the Tree', root.preorder_Traversal()
 print 'Inorder Traversal of the Tree', root.inorder_Traversal()
 
 print 'postorder Traversal of the Tree', root.postorder_Traversal()
+
+print root.levelOrderTraversal()
+
+print root.levelOrderTraversalloop()
+
 #print root.search(21)
 
 
