@@ -133,7 +133,7 @@ class BST(object):
 		return self.levelOrderTraversal_(queue)
 
 	def levelOrderTraversal_(self, queue):
-		print queue
+		
 		if len(queue)!=0:
 			current = queue[0]
 		
@@ -147,7 +147,7 @@ class BST(object):
 
 			return self.levelOrderTraversal_(queue[1:])
 
-
+	#level order traversal using loop 
 	def levelOrderTraversalloop(self):
 		queue = []
 		queue.append(self.root)
@@ -163,6 +163,21 @@ class BST(object):
 				queue.append(current.right)
 
 			queue=queue[1:]
+
+	# Check if a given binary tree is BST
+
+	def isBST(self):
+		return self.isBST_(self.root, -100000, 1000000)
+
+	def isBST_(self, root, min, max):
+		if root == None:
+			return True
+
+		if (root.value > min and root.value < max):
+			print root.value, min, max
+			return self.isBST_(root.left, min, root.value) and self.isBST_(root.right, root.value, max)
+		return False
+
 
 
 
@@ -180,8 +195,9 @@ root.insert(25)
 root.insert(5)
 
 
-root.printTree()
+#root.printTree()
 
+'''
 print 'Minimum value node in the Tree is', root.minTree()
 
 print 'Maximum value node in the Tree is' ,root.maxTree()
@@ -197,8 +213,9 @@ print 'postorder Traversal of the Tree', root.postorder_Traversal()
 print root.levelOrderTraversal()
 
 print root.levelOrderTraversalloop()
-
+'''
 #print root.search(21)
 
+print root.isBST()
 
 
