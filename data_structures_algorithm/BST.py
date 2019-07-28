@@ -66,7 +66,7 @@ class BST(object):
 
 		while current.left!=None:
 			current = current.left
-		return current.value
+		return current
 
 	def maxTree(self):
 		
@@ -165,6 +165,8 @@ class BST(object):
 			queue=queue[1:]
 
 	# Check if a given binary tree is BST
+	'''Trick is to make sure that root of left sub tree is less than root node, and root of right subtree 
+	is greater than root node'''
 
 	def isBST(self):
 		return self.isBST_(self.root, -100000, 1000000)
@@ -179,8 +181,51 @@ class BST(object):
 		return False
 
 
+	#Delete node
+	'''
+	There are 3 cases to delete a node in Binary search tree
+	1) Delete leaf node, remove reference of the node from its parents. 
+	2) Delete node with one child, link its parent to its only child.
+	3) Delete node with two child, find min in the right subtree and replace it with the node or find the max in the left subtree and 
+	   replace it with the node. 
+	'''
+	def delete(self, value):
+		return self.delete_(self.root, value)
 
+	def delete_(self, root, value):
 
+		#print root.value, value, root
+		if root == None:
+			print 'asdfsd'
+			return 
+
+		if root.value >value:
+			print root.value 
+			root.left = self.delete_(root.left, value)
+
+		elif root.value < value:
+			print root.value 
+			root.right = self.delete_(root.right, value)
+
+		else:
+
+			if not root.right:
+				return root.left
+
+			if not root.left:
+				return root.right	
+
+			temp_root = root.right
+			min_val = temp_root.value
+
+			while temp_root.left:
+				temp_root = temp_root.left
+				min_val = temp_root.value
+				
+			root.value = min_val 
+			root.right = self.delete_(root.right,root.value)
+			
+		return root
 
 e1 = Element(15)
 root = BST(e1)
@@ -193,10 +238,17 @@ root.insert(19)
 root.insert(21)
 root.insert(25)
 root.insert(5)
+root.insert(22)
+root.insert(26)
 
 
-#root.printTree()
+root.printTree()
+print 'END'
 
+print root.delete(20)
+
+print 'ENDEND'
+root.printTree()
 '''
 print 'Minimum value node in the Tree is', root.minTree()
 
@@ -216,6 +268,6 @@ print root.levelOrderTraversalloop()
 '''
 #print root.search(21)
 
-print root.isBST()
+#print root.isBST()
 
 
