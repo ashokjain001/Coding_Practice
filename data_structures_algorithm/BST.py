@@ -9,6 +9,27 @@ class BST(object):
 		self.root = root #pointer to root node and setting the tree as empty
 
 
+	#insert using while loop
+	def insertLoop(self, value):
+		current = self.root
+		parent = None
+		
+		while 1:	
+			parent = current 
+			if current.value > value:
+				current = current.left 	
+				if current == None:
+					parent.left = Element(value)
+					return current
+					
+			if current.value < value:
+				current = current.right
+				print current, 'Current'
+				if current == None:
+					parent.right = Element(value)
+					return current
+
+	#Insert using Recursion	
 	def insert(self, value):
 		self.insert_(self.root, value)
 
@@ -36,7 +57,7 @@ class BST(object):
 			return False
 
 		if root.value == value:
-			return True	
+			return root
 		
 		if root.value >= value:
 			return self.search_(root.left,value)
@@ -58,15 +79,13 @@ class BST(object):
 
 
 	def minTree(self):
-
-		current=self.root
-
+		current = self.root
 		if current == None:
 			return 'No nodes in the Binary Search tree'
 
 		while current.left!=None:
 			current = current.left
-		return current
+		return current.value
 
 	def maxTree(self):
 		
@@ -76,6 +95,7 @@ class BST(object):
 
 		while current.right!=None:
 			current = current.right
+
 		return current.value	
 
 
@@ -227,29 +247,74 @@ class BST(object):
 			
 		return root
 
+	def inorderSuccessor(self, value):
+		return self.inorderSuccessor_(self.root,value)
+
+	def inorderSuccessor_(self,root,value):
+		current = self.search(value)
+		
+		if current == None:
+			return False
+
+		if current.right!=None:
+			current = current.right
+			while current.left:
+				current = current.left
+			return current.value, 'is the successor of', value
+
+		if current.right==None:
+			ancestor = self.root
+			successor = None
+
+			while ancestor!=current:
+				if current.value<ancestor.value:
+					successor = ancestor
+					ancestor=ancestor.left
+					print successor.value, 'successor', ancestor.value, 'ancestor'
+				else:
+					ancestor=ancestor.right
+
+		return successor.value, 'is the successor of ', current.value
+
+
 e1 = Element(15)
 root = BST(e1)
 
 root.insert(10)
 root.insert(20)
 root.insert(8)
-root.insert(9)
 root.insert(19)
 root.insert(21)
 root.insert(25)
 root.insert(5)
-root.insert(22)
-root.insert(26)
+root.insert(12)
+root.insert(11)
 
+'''
+root.insertLoop(10)
+root.insertLoop(20)
+root.insertLoop(8)
+root.insertLoop(9)
+root.insertLoop(19)
+root.insertLoop(21)
+root.insertLoop(25)
+root.insertLoop(5)
+root.insertLoop(22)
+root.insertLoop(26)
 
-root.printTree()
-print 'END'
-
-print root.delete(20)
-
-print 'ENDEND'
 root.printTree()
 '''
+root.printTree()
+
+#print root.delete(20)
+#print root.minTree()
+
+print root.inorderSuccessor(8)
+print root.inorderSuccessor(10)
+print root.inorderSuccessor(12)
+print root.inorderSuccessor(11)
+'''
+
 print 'Minimum value node in the Tree is', root.minTree()
 
 print 'Maximum value node in the Tree is' ,root.maxTree()
