@@ -32,17 +32,17 @@ def selectionSort(arr):
 #print selectionSort([2,7,4,1,5,3])
 
 
-#Using for loop 
+#Using for loop  and inplace sorting
 def selectionSort2(arr):
 	print 'Input', arr
-	l=len(arr)
-	for i in range(l):
-		for j in range(i,l): #finding minimum value in rest of the array
+
+	for i in range(len(arr)):
+		for j in range(i+1,len(arr)): #finding minimum value in rest of the array
 			if arr[j]<arr[i]: #compare the first element vs the rest of the element in the array
-				print arr[j], 'is smaller than', arr[i], 'and swapped'
+				print arr[j], 'is less than', arr[i], 'and swapped'
 				arr[j],arr[i]=arr[i],arr[j]#swap value
 				print arr
-	return 'Output' ,arr
+	return 'Output' ,arr 
 print selectionSort2([2,7,4,1,5,3])
 
 '''
@@ -65,4 +65,13 @@ Input [2, 7, 4, 1, 5, 3]
 [1, 2, 3, 4, 5, 7]
 ('Output', [1, 2, 3, 4, 5, 7])
 '''
+
+
+
+
+
+
+
+
+
 

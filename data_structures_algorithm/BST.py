@@ -256,12 +256,14 @@ class BST(object):
 		if current == None:
 			return False
 
+		#case 1: node with right subtree/child
 		if current.right!=None:
 			current = current.right
 			while current.left:
 				current = current.left
 			return current.value, 'is the successor of', value
 
+		#case 2: node with no right subtree
 		if current.right==None:
 			ancestor = self.root
 			successor = None
