@@ -12,7 +12,7 @@ In every iteration of selection sort, the minimum element
 moved to the sorted subarray.
 
 Time Complexity: 
-O(n2) as there are two nested loops.
+O(n^2) as there are two nested loops.
 
 Space Complexity: O(1)
 The good thing about selection sort is it never makes more than O(n)

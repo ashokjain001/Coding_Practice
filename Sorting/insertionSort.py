@@ -18,7 +18,7 @@ def insertionSort(array):
   		position=i
   		while position+1>0:
 	  		print array, array[position+1], 'is compared with ', array[position],'before swap'
-	  		if (array[position]>array[position+1])==True:
+	  		if (array[position]>array[position+1]):
 	  			array[position+1],array[position]=array[position],array[position+1]
 	  			print array,'After swap position', position
 	        	position-=1

@@ -6,9 +6,11 @@ till all the elements are in correct position'''
 def bubblesort(array):
 	l=len(array)
 	for i in range(l-1):
-		for j in range(l-1):
+		for j in range(l-i-1):
 			if array[j]>array[j+1]:
 				array[j],array[j+1]=array[j+1],array[j]
+				flag = 1
+			print array
 	return array
 
 print bubblesort([40,7,90,20,60,21,6, 19])
