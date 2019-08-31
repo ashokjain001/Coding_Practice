@@ -12,4 +12,3 @@ def findPrimeNumber(n):
 	return is_Prime
 print findPrimeNumber(15)
 
-
